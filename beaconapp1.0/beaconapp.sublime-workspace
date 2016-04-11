@@ -1,0 +1,533 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"custom",
+				"customer_id"
+			],
+			[
+				"user",
+				"user_stripe_account"
+			],
+			[
+				"stripe",
+				"stripe_id"
+			],
+			[
+				"end",
+				"endblock"
+			],
+			[
+				"s",
+				"script	Tag"
+			],
+			[
+				"h",
+				"h1	Tag"
+			],
+			[
+				"a",
+				"account"
+			],
+			[
+				"st",
+				"static"
+			],
+			[
+				"static",
+				"static-only"
+			],
+			[
+				"STAT",
+				"STATIC_ROOT"
+			],
+			[
+				"pro",
+				"profiles"
+			],
+			[
+				"te",
+				"template"
+			],
+			[
+				"de",
+				"default"
+			],
+			[
+				"pass",
+				"password"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/profiles/models.py",
+			"settings":
+			{
+				"buffer_size": 1542,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/profiles/admin.py",
+			"settings":
+			{
+				"buffer_size": 342,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/checkout/views.py",
+			"settings":
+			{
+				"buffer_size": 936,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/profiles/apps.py",
+			"settings":
+			{
+				"buffer_size": 91,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/beaconapp/settings.py",
+			"settings":
+			{
+				"buffer_size": 5638,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 277.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"bootst",
+				"Snippet: Bootstrap starter"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"snippet bootstrap star",
+				"Snippet: Bootstrap starter"
+			],
+			[
+				"disco",
+				"Package Control: Discover Packages"
+			],
+			[
+				"packa",
+				"Package Control: Add Channel"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 101.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Python/beaconapp/src/contact/forms.py",
+		"/C/Python/beaconapp/src/templates/profile.html",
+		"/C/Python/beaconapp/src/beaconapp/settings.py",
+		"/C/Python/beaconapp/src/checkout/views.py",
+		"/C/Python/beaconapp/src/templates/checkout.html",
+		"/C/Python/beaconapp/src/templates/base.html",
+		"/C/Python/beaconapp/src/beaconapp/urls.py",
+		"/C/Python/beaconapp/src/templates/home.html",
+		"/C/Python/beaconapp/src/profiles/views.py",
+		"/C/Python/beaconapp/src/templates/navbar.html",
+		"/C/Python/beaconapp/src/templates/contact.html",
+		"/C/Python/beaconapp/src/contact/views.py",
+		"/C/Python/beaconapp/src/templates/account/logout.html",
+		"/C/Python/beaconapp/src/templates/account/login.html",
+		"/C/Python/beaconapp/src/templates/account/signup.html",
+		"/C/Users/elmenor/Desktop/all.py",
+		"/C/Python/beaconapp/src/templates/about.html",
+		"/C/Users/elmenor/AppData/Roaming/Microsoft/Windows/Recent/all.py.lnk",
+		"/C/Python/beaconapp/src/contact/__init__.py",
+		"/C/Python/beaconapp/src/manage.py",
+		"/C/Python/beaconapp/src/profiles/models.py",
+		"/C/Python/beaconapp/src/profiles/admin.py",
+		"/C/Python/beaconapp/src/static/static/css/main.css",
+		"/C/Python/beaconapp/src/profiles/views.pyc",
+		"/C/Users/elmenor/AppData/Local/Temp/settings-2.py",
+		"/C/Python/beaconapp/Static/templates/home.html",
+		"/C/Users/elmenor/AppData/Local/Temp/settings.py",
+		"/C/Python/beacon_env/beaconapp/beaconapp/settings.py",
+		"/C/Python/beacon_env/beaconapp/settings.py",
+		"/C/Python/beacon_env/Lib/site-packages/django_admin_bootstrapped/templates/admin/base_site.html",
+		"/C/Python/beacon_env/Lib/site-packages/django_admin_bootstrapped/templates/admin/base.html",
+		"/C/Python/beacon_env/Lib/site-packages/django_admin_bootstrapped/static/bootstrap/js/stripe.js",
+		"/C/Users/elmenor/AppData/Local/Temp/settings-3.py",
+		"/C/Users/elmenor/AppData/Local/Temp/settings-1.py",
+		"/C/Python/beacon_env/Lib/site-packages/django_admin_bootstrapped/templates/admin/index.html",
+		"/C/Python/beacon_env/Lib/site-packages/django_admin_bootstrapped/static/bootstrap/js/bootstrap.js",
+		"/C/Python/beacon_env/Lib/site-packages/django_admin_bootstrapped/static/admin/js/jquery-1.9.1.min.js",
+		"/C/Python/beacon_env/Lib/site-packages/django_admin_bootstrapped/static/admin/js/generic-lookup.js",
+		"/C/Python/beacon_env/Lib/site-packages/django_admin_bootstrapped/static/admin/js/jquery.sortable.js",
+		"/C/Python/beacon_env/beaconapp/templates/admin/index.html",
+		"/C/Python/beacon_env/beaconapp/templates/admin/base.html",
+		"/C/Python/beacon_env/beaconapp/manage.py",
+		"/C/Users/elmenor/AppData/Roaming/Sublime Text 2/Packages/User/HTML.sublime-settings",
+		"/C/Python/beacon_env/Lib/site-packages/django_admin_bootstrapped/static/bootstrap/css/bootstrap.css",
+		"/C/Python27/Scripts/get-pip.py",
+		"/C/Python27/Lib/beautifulsoup4-4.4.1/setup.py",
+		"/C/Python27/lib/bs4/__init__.py",
+		"/C/squirrelmail/config/config.php",
+		"/C/wamp/www/Firstsite/wp-config-sample.php",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Beaconscene/iBeaconScanner.app/iBeaconScanner.id0",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Beaconscene/iBeaconScanner.app/iBeaconScanner.til",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Beaconscene/iBeaconScanner.app/iBeaconScanner.id1",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/KTKBeaconManager.h",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/Localizable.strings",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Beaconscene/iBeaconScanner.app/Base.lproj/Main_iPhone.storyboardc/UIViewController-rS3-R9-Ivy.nib",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Beaconscene/iBeaconScanner.app/iBeaconScanner.nam",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/Beacon1/objects.nib",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/Beacon1/objects.til",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/Beacon1/objects2.nam",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/Beacon1/objects.id1",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/Beacon1/objects.id0",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/NSException_SenTestFailure.til",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/NSException_SenTestFailure.h",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/NSException_SenTestFailure.id1",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/NSException_SenTestFailure.nam",
+		"/C/wamp/www/RunPlatformUnitTests",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/NSException_SenTestFailure.id0",
+		"/C/wamp/www/SenTestingKit",
+		"/C/wamp/www/NSException_SenTestFailure.h",
+		"/C/Users/elmenor/AppData/Local/Temp/Rar$DIa0.520/objects.nib",
+		"/C/Users/elmenor/AppData/Local/Temp/Rar$DIa0.943/MainViewController.nib",
+		"/C/Users/elmenor/Desktop/Ibeacon set up/Test/Beacon.h",
+		"/C/Users/elmenor/AppData/Local/Temp/Rar$DIa0.077/Beacon Zone",
+		"/C/Users/elmenor/Downloads/OS X 10.10 Yosemite VMware Image/OS X 10.10 Yosemite Image/OS X 10.10 Yosemite.vmx",
+		"/C/Users/elmenor/VirtualBox VMs/New group/macosxmavericks2/macosxmavericks2.vbox",
+		"/C/Users/elmenor/Desktop/index.php",
+		"/C/Users/elmenor/Desktop/component.php",
+		"/C/Users/elmenor/Desktop/templates.php",
+		"/C/Users/elmenor/Desktop/Beaconscenefiles/en-GB.com_community2.ini",
+		"/C/Users/elmenor/Documents/Email Sender Deluxe/Templates/Featurepointsmailer.xml",
+		"/C/Program Files (x86)/FBP - Facebook Blaster Pro/AxInterop.SHDocVw.dll",
+		"/C/Program Files (x86)/FBP - Facebook Blaster Pro/SiteControl.dll",
+		"/C/Program Files (x86)/FBP - Facebook Blaster Pro/WatiN.Core.dll",
+		"/C/Program Files (x86)/FBP - Facebook Blaster Pro/WebControl.dll",
+		"/C/Program Files (x86)/FBP - Facebook Blaster Pro/Microsoft.mshtml.dll",
+		"/C/Program Files (x86)/FBP - Facebook Blaster Pro/FBP.exe",
+		"/C/Users/elmenor/VirtualBox VMs/macosxmavericks2/macosxmavericks2.vbox",
+		"/C/Program Files (x86)/Atomic Email Hunter/crack.reg",
+		"/C/Users/elmenor/Desktop/Super.Email.Spider.2.85/classifyadslist01.xsp",
+		"/C/Users/elmenor/Desktop/en-GB.com_community.ini",
+		"/C/Users/elmenor/Desktop/slideshow.php",
+		"/C/Users/elmenor/Desktop/phocahead.php",
+		"/C/Users/elmenor/Desktop/phocagallerycategory.php",
+		"/C/Users/elmenor/Desktop/item_title.php",
+		"/C/Users/elmenor/Desktop/phocamedia.php",
+		"/C/Users/elmenor/Desktop/category_default.php",
+		"/C/Users/elmenor/Desktop/categories_default.php",
+		"/C/Users/elmenor/Desktop/associations.php",
+		"/C/Users/elmenor/Desktop/supersized.3.2.4.js",
+		"/C/Users/elmenor/Desktop/MenuMatic_0.68.3.js",
+		"/C/Users/elmenor/Desktop/en-GB.tpl_phoca_bild.ini",
+		"/C/Users/elmenor/Desktop/layout.css",
+		"/C/Users/elmenor/Desktop/template.css",
+		"/C/Users/elmenor/Desktop/default.php",
+		"/C/Users/elmenor/Desktop/pagination.php",
+		"/C/Users/elmenor/Desktop/modules.php",
+		"/C/Users/elmenor/Desktop/index.html",
+		"/C/Users/elmenor/Desktop/supersized.css",
+		"/C/Users/elmenor/Desktop/intro_image.php",
+		"/C/Users/elmenor/Desktop/configurationupdate.php",
+		"/C/Users/elmenor/Desktop/plug_cbjoomlamaillistintegration/cb.joomlamailman.php",
+		"/C/Users/elmenor/Desktop/plug_cbjoomlamaillistintegration/cb.joomlamailman.xml",
+		"/C/Users/elmenor/Downloads/crossdomain.xml",
+		"/C/wamp/apps/phpmyadmin3.5.1/config.inc.php",
+		"/C/wamp/www/Social/configuration.php",
+		"/C/Users/elmenor/Downloads/Studio V5 Logo Maker 3.0 + Key/~Get Your Software Here/Key/key.txt",
+		"/C/wamp/www/joomla/libraries/joomla/user/user.php",
+		"/C/wamp/www/joomla/cross-domain-policy.dtd",
+		"/C/wamp/www/joomla/crossdomain.xml",
+		"/C/wamp/www/joomla/plugins/index.html",
+		"/C/wamp/www/Beacongroup/configuration.php",
+		"/C/wamp/www/joomla/administrator/index.php",
+		"/C/wamp/www/joomla/plugins/authentication/index.html",
+		"/C/wamp/www/joomla/plugins/authentication/ldap/index.html",
+		"/C/wamp/www/Beacongroup/plugins/authentication/joomla/joomla.php",
+		"/C/wamp/www/Beacongroup/plugins/authentication/ldap/ldap.php",
+		"/C/wamp/www/Beacongroup/plugins/authentication/ldap/index.html"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"site administration",
+			"application",
+			"background",
+			">\n",
+			" NIBArchive......\n ..5...2...D...µ.\n ..µ...Ç.......t.\n ..èÇåÆå..ççàÄ.Æ.\n .Ä.àëòàÆÜ.Ç¢êÆú.\n .ñçÆ½.å¼ëî¦âÆ+.Ç\n ¦.ê¦.Æ+.ô+Æ.+êë+\n àë¦àëaààs.îµâîTâ\n æ8..fë.÷é.°äînâÇ\n  æÇ..äÆ...ë..àë.\n .àÆ.... .çë'.àÆ,\n ..ë-.àë2.åï8..Æ9\n ..î:.ââ=.æ.N.ä.R\n .ééT.çî[.âÆ^..Æ_\n ..ë`.å.UIDestina\n tionèUIFontNameê\n UIOpaqueæUIMinim\n umFontSizeåNSNam\n eûUIAdjustsFontS\n izeToFitîNSSecon\n dItemïUITextColo\n rúUINibAccessibi\n lityConfiguratio\n nsKey.UIFontPoin\n tSize.UISeparato\n rStyleçUIAlpha.U\n IClipsToBoundsîU\n IFontTraitsûUINi\n bVisibleWindowsK\n ey.UIContentSize\n êUICenterÜUIAdju\n stsImageWhenDisa\n bledåUIFontèNSCo\n nstantëNS.intval\n £UIContentHorizo\n ntalAlignment.UI\n AdjustsImageWhen\n HighlightedòUISe\n ctionHeaderHeigh\n tïUIEventMaskåUI\n BlueêUISourceôUI\n NibConnectionsKe\n yÄUIKeyboardType\n öUINibEncoderEmp\n tyKey¦UIViewDoes\n NotTranslateAuto\n resizingMaskInto\n Constraints£UISe\n paratorStyleIOS5\n AndLaterçUIGreen\n ÖUIProxiedObject\n IdentifierîUIBut\n tonTypeöUIAutore\n sizeSubviewsòUIN\n ibKeyValuePairsK\n eyÆNSShouldBeArc\n hivedùUINibTopLe\n velObjectsKeyºUI\n ShowsSelectionIm\n mediatelyOnTouch\n BeginæUIBackgrou\n ndColor¢UIViewAu\n tolayoutConstrai\n ntsèUISubviewsêN\n S.bytesÜUIFontDe\n scriptorAttribut\n esÄNSInlinedValu\n e.UIBorderStyleò\n UIColorComponent\n CountûUIAlwaysBo\n unceVerticalïNSF\n irstItemòUISecti\n onFooterHeightÆU\n IAutoresizingMas\n k£UIViewContentH\n uggingPriorityîN\n SColorSpaceæNSSe\n condAttributeçUI\n Label.UIFontDesc\n riptor.UIPlaceho\n lder.UINibObject\n sKey.NSFirstAttr\n ibute.UITextAlig\n nmentåNSSizeêUIB\n oundsôUIClearBut\n tonOffset.UIBoun\n cesZoomàUIRedàNS\n RGBîUISystemFont\n ª. ...¦.....¢...\n ..Ä.....ê.....ñ.\n ....½.ëaddEmail:\n »..-...Ç?á...Ç?Ö\n ...Ç?ï...Ç?-.à1\n 1 1¦..í.2...½.ôN\n SFontSizeAttribu\n te¡.............\n ..$.....!...¦...\n ..+..å.....¦..Ñ.\n ½.Ü.HelveticaNeu\n eInterface-M3¡..\n .............1..\n ...,............\n .........½.èemai\n lTable»..-.....á\n .....Ö.....ï....\n .-.ç0 0 0 0¦..½.\n êdelegate+.æ....\n .......¦A..¦A..ë\n ..ÇùC..`Aú.¦.$P.\n ¦.+...û.æ.ó..+.'\n ...Ü.....Ç.....½\n .äview¡.ö..½.èda\n taSource+.æ.....\n ......áC..=A..ë.\n .. C..pA¿.....ú.\n ¦.$î.P.¬.....ò..\n Æ.0...¦.....+..ç\n .%...«..à.â...êA\n +.ë...@@..Ç?£..+\n .æ...........áC.\n ..D..ë... C..ÄC¬\n .....¿.....é.ú.¦\n ..¬.....¦.-...+.\n .å.....¦..Ñ.¦.-.\n ..+..å.....¦..Ñ.\n ¦.....+..å.....¦\n ..Ñ.í.3...+.....\n Ü.....Ç.....+...\n ..Ü.....Ç.-...½.\n ëAdd Email¡.....\n ..........(.....\n ............#...\n ..).....4...¡...\n &...+.....Ü.....\n Ç.....ÿ.@+.....Ü\n .-...Ç.....¡....\n ................\n .............(..\n ...............#\n .....).....4....\n .............-..\n ...&.....\"...¡..\n ................\n .½.ÆCTFontRegula\n rUsage¦.-...+..¦\n ..ô......-Ç@Ñ.¦.\n -...+..å.....¦..\n Ñ.½.ÿNSCTFontUIU\n sageAttribute»..\n -.....á.....Ö...\n ..ï...Ç?-.à0 0 0\n ¦..¦.....+..¦..ô\n .......>@Ñ.½.Äem\n ailTextField¦...\n ..+..å.....¦..Ñ.\n ¦.....+..å.....¦\n ..ô........@Ñ.¼.\n ....½.è{250, 250\n }+.....Ü.-...Ç..\n ...+.æ..........\n .áC.Ç.D..ë... C.\n ÇòC¿.....é.ú.¦..\n î.P.¬./...+.¦...\n ë...áC....è..ƒ..\n ù...¦A¦...¦Aº.¡.\n ..............-.\n ..¡...\".........\n +.*...ë.......,@\n ...+.ä.....+....\n ...,@+.....Ü....\n .Ç.....½..IBFirs\n tResponder½.îIBF\n ilesOwner¦.....+\n ..å.....¦..ô....\n ....@Ñ.êÇNSArray\n ..ÇNSMutableArra\n y.ç.....UIFont.î\n ÇUITableView.êÇN\n SColor.ÄÇUIProxy\n Object.ëÇUIButto\n n.çÇNSFont.ëÇNSN\n umber.ôÇNSLayout\n Constraint.ëÇNSO\n bject.æÇUIFontDe\n scriptor.ÜÇUIRun\n timeOutletConnec\n tion.ÖÇUIRuntime\n EventConnection.\n öÇNSMutableDicti\n onary.ê.....UICo\n lor.çÇUIView..ÇN\n SMutableString.ë\n ÇNSString.îÇUITe\n xtField.",
+			"location",
+			"background",
+			"hid",
+			"mappings",
+			"USB",
+			"blaka",
+			"nature",
+			"valley",
+			"js_top",
+			"public",
+			"	 ",
+			"public"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/profiles/models.py",
+					"settings":
+					{
+						"buffer_size": 1542,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								1542
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 211.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/profiles/admin.py",
+					"settings":
+					{
+						"buffer_size": 342,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								342
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 16.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/checkout/views.py",
+					"settings":
+					{
+						"buffer_size": 936,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								936
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/profiles/apps.py",
+					"settings":
+					{
+						"buffer_size": 91,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/beaconapp/settings.py",
+					"settings":
+					{
+						"buffer_size": 5638,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2655,
+								2655
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1032.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 116.0,
+	"status_bar_visible": true
+}

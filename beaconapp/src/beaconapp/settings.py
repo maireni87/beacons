@@ -23,6 +23,7 @@ EMAIL_USE_TLS = True
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'o@-9+&5o&bk5b!bg9fk_f&nbqb=x_(cmg!k-nom)1)*m!b!=3q'
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'profiles',
     'beaconapp',
     'crispy_forms',
@@ -48,8 +50,11 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'stripe',
-    
+    'djcelery',
+    'kombu.transport.django',
+    'scraper',
+    'django_rq'
+    'tastypie',
     
 ]
 
@@ -191,8 +196,8 @@ if DEBUG:
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-# Location of Templates
-#TEMPLATE_DIRS = (os.path.join(os.path.dirname(BASE_DIR),"static", "templates"), )
-#STATIC_ROOT = os.path.normpath(os.path.join(BASE_DIR), "static", "static-only")
-#MEDIA_ROOT = os.path.normpath(os.path.join(BASE_DIR), "static", "media")
-#STATICFILES_DIR = (os.path.normpath(os.path.join(BASE_DIR), "static", "static"),)
+import dj_database_url
+
+db_config =  dj_database_url.config()
+if db_config:
+    DATABASES["default"] = db_config

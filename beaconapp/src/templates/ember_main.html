@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>distill</title>
+  <meta charset="UTF-8" />
+  <meta name="description" content="{% block description %}{% endblock %}">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="ReviewSage Upload">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http:////maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link href="{{STATIC_URL}}css/r_css/lib/animate.css" rel="stylesheet">
+  <link href="{{STATIC_URL}}css/r_css/style-dark.css" rel="stylesheet">
+  <link href="{{STATIC_URL}}css/r_css/scheme/light-blue.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+  <script src="http://builds.emberjs.com/release/ember.js"></script>
+  <script src="http://builds.emberjs.com/beta/ember-data.js"></script>
+  <script src="{{STATIC_URL}}js/lib/ember-uploader.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.js"></script>
+  <script src="{{STATIC_URL}}js/lib/vega.js"></script>
+  <script src="{{STATIC_URL}}js/app/explore/app.js"></script>
+  <script src="{{STATIC_URL}}js/app/explore/models.js"></script>
+  <style>
+    .btn-file {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-file input[type=file] {
+      position: absolute;
+      top: 0;
+      right: 0;
+      min-width: 100%;
+      min-height: 100%;
+      font-size: 100px;
+      text-align: right;
+      filter: alpha(opacity=0);
+      opacity: 0;
+      outline: none;
+      background: white;
+      cursor: inherit;
+      display: block;
+    }
+    .spinner {
+      margin: 100px auto;
+      width: 32px;
+      height: 32px;
+      position: relative;
+    }
+
+    .spinner {
+      margin: 100px auto 0;
+      width: 70px;
+      text-align: center;
+    }
+
+    .spinner > div {
+      width: 18px;
+      height: 18px;
+      background-color: #e09e26;
+
+      border-radius: 100%;
+      display: inline-block;
+      -webkit-animation: bouncedelay 1.4s infinite ease-in-out;
+      animation: bouncedelay 1.4s infinite ease-in-out;
+      /* Prevent first frame from flickering when animation starts */
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+    }
+
+    .spinner .bounce1 {
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+    }
+
+    .spinner .bounce2 {
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
+    }
+
+    @-webkit-keyframes bouncedelay {
+      0%, 80%, 100% { -webkit-transform: scale(0.0) }
+      40% { -webkit-transform: scale(1.0) }
+    }
+
+    @keyframes bouncedelay {
+      0%, 80%, 100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+      } 40% {
+          transform: scale(1.0);
+          -webkit-transform: scale(1.0);
+        }
+    }
+    .prompt, .group {
+      font-size: 35px;
+      padding: 20px;
+      background-color: #25292c;
+      margin: 10px 0;
+    }
+    .prompt:hover {
+      background: #232629;
+    }
+    .special-prompt {
+      font-size: 35px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.2);
+      margin: 10px 0;
+    }
+    .selected-prompt {
+      font-size: 35px;
+      padding: 20px;
+      background-color: #e09e26;
+      color: #333;
+      margin: 10px 0;
+    }
+    .color-gray {
+      color: #b8b9bc;
+    }
+    .color-orange {
+      color: #e09e26;
+    }
+    .color-dark {
+      color: #25292c;
+    }
+    .prompt .meta, .group .meta {
+      font-size: 20px;
+    }
+    .breadcrumb {
+      text-align: left
+    }
+    .node {
+      color: #333;
+      background-color: #EDEDED;
+      padding: 15px;
+      margin: 5px 0;
+    }
+    .selected-group {
+      background-color: #e09e26;
+      color: #333;
+    }
+    .special-group {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    .selected-group .meta a {
+      color: #ededed;
+    }
+
+    .affix {
+      top: 10px;
+    }
+    .affix-bottom {
+      position: absolute;
+    }
+    .ratings-affix {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .ratings-affix.affix {
+      position:static;
+    }
+    .ratings-affix.affix-bottom {
+{#      padding-right: 10px;#}
+{#      margin-top: 0;#}
+{#      margin-bottom: 0;#}
+{#      width: 263px;#}
+    }
+    @media (min-width:992px) {
+{#      .bs-docs-sidebar .nav>.active>ul {#}
+{#        display: block;#}
+{#      }#}
+      .ratings-affix.affix, .ratings-affix.affix-bottom {
+
+      }
+      .ratings-affix.affix {
+        position: fixed;
+        top: 20px;
+      }
+      .ratings-affix.affix-bottom {
+        position: absolute;
+      }
+{#      .ratings-affix.affix-bottom .bs-docs-sidebar.affix .bs-docs-sidenav {#}
+{#        margin-top: 0;#}
+{#        margin-bottom: 0;#}
+{#      }#}
+    }@media (min-width:1200px) {
+      .ratings-affix.affix-bottom, .ratings-affix.affix {
+ 
+      }
+    }
+
+  </style>
+</head>
+<body>
+{% verbatim %}
+<script type="text/x-handlebars" data-template-name="application">
+  <div class="outter">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a style="font-size: 45px;" class="navbar-brand color-dark" href="#"><strong>dis</strong>till</a>
+        </div>
+      </div>
+    </nav>
+    <div class="section-outter">
+      <section style="min-height: 540px; background-color: #2f3238">
+        <div class="section-wrapper">
+          <div class="section-inner">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 style="font-size:100px" class="color-orange"><strong class="color-gray">dis</strong>till</h1>
+                  {{outlet "main"}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer white section-wrapper">
+        <nav class="footer-nav" role="navigation">
+          <ul>
+          </ul>
+        </nav>
+        <p class="copyright">&copy; 2014 Saji, Ltd. All Rights Reserved</p>
+        <div class="footer-logo">
+          <img src="https://s3-us-west-2.amazonaws.com/reviewsage-static/img/new_homepage/reviewsage-white_32.png" alt="">
+        </div>
+        <div class="spacer big"></div>
+      </footer>
+    </div>
+  </div>
+  <div id="generic-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="generic-modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        {{outlet 'modal'}}
+      </div>
+    </div>
+  </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="processing">
+  <div style="padding: 40px 0">
+    <div class="prompt">
+      <h1 class="color-gray"><strong class="color-orange">Fermenting!</strong> Reviews are being grabbed and analyzed.</h1>
+      <h4 class="color-gray">This could take up to 8 minutes, so here's something to pass the time.</h4>
+      <iframe width="560" height="315" src="//www.youtube.com/embed/92GHdmnDiFE?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="spinner" style="margin-top: 15px;">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="propertyStatus/index">
+  <div style="padding: 40px 0">
+    <div class="prompt">
+      {{#unless ready}}
+      <h1 class="color-gray" style="margin-bottom:40px;"><strong class="color-orange">Fermenting!</strong> We're working on it!</h1>
+      {{else}}
+      <h1 class="color-gray" style="margin-bottom:40px;"><strong class="color-orange">All done!</strong> Redirecting you to our summary...</h1>
+      {{/unless}}
+      <div class="row special-prompt">
+        <div class="col-sm-6">
+          <h4 class="color-gray">Online reviews:</h4>
+          <h4 class="color-gray">{{#if yelp}}<strong class="color-orange">Done!</strong>{{else}}<strong>Reading...</strong>{{/if}}</h4>
+        </div>
+        <div class="col-sm-6">
+          <h4 class="color-gray">Topic analysis status:</h4>
+          <h4 class="color-gray">{{#if topics}}<strong class="color-orange">Done!</strong>{{else}}<strong>Processing...</strong>{{/if}}</h4>
+        </div>
+      </div>
+      {{#unless ready}}
+      <h4 class="color-gray" style="margin-top:40px;">Keep this page open, we'll handle it from here.  This can take up to 10 minutes.</h4>
+      {{/unless}}
+    </div>
+    {{#unless ready}}
+    <div class="spinner" style="margin-top: 15px;">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+    {{/unless}}
+  </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="explore/index">
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-1"><h4 class="color-gray">data</h4></div>
+  <div class="col-sm-2"><h4 class="color-gray">driven</h4></div>
+  <div class="col-sm-1"><h4 class="color-orange"><strong>dinner</strong></h4></div>
+  <div class="col-sm-4"></div>
+</div>
+
+<div class="row">
+  <div style="padding: 40px 0">
+    <div class="prompt">
+      <div id="initial-title" class="section-title">
+        <h2 class="title">Let's Eat</h2>
+        <h4 class="subtitle" data-effect="fadeInUp">Send us a restaurant <span class="main-color">URL</span> and we'll make sense of their online presence.</h4>
+      </div>
+      <div class="section-title">
+        <h4 {{bind-attr class=":subtitle badUrl::hidden"}}><strong class="color-orange">Uh-oh... That doesn't appear to be a valid Yelp URL.</strong></h4>
+      </div>
+      <div class="row">
+        <div class="input-group" style="width:70%; margin: 0 auto; float: none;">
+          {{input class="form-control" placeholder="Copy/paste a Yelp URL here..." value=this.controller.yelpUrl}}
+          <div class="input-group-btn">
+            <button {{action 'submitUrl'}} class="btn btn-warning">I'm hungry!</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div style="margin-top: 15px;" {{bind-attr class=":spinner checking::hidden"}}>
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
+      </div>
+      <div style="margin-bottom: 20px"></div>
+      <div class="section-title">
+        <h4 class="subtitle ">...or check out some recently analyzed places below.</h4>
+      </div>
+    </div>
+    <div class="row" style="margin-left:30px; margin-right:30px;">
+      <div class="col-sm-12">
+        {{#each properties}}
+          <a href="javascript:void(0);">
+          <div {{action 'loadProperty' this}} class="prompt zoomIn animated">
+            <div class="row">
+              <div class="col-sm-10">
+                <h4 class="color-gray">{{{name}}}</h4>
+              </div>
+              <div class="col-sm-2">
+                <h4 class="color-gray"><i class="color-orange fa fa-file-text"></i> {{reviews}}</h4>
+              </div>
+            </div>
+          </div>
+          </a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="property">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="section-title overview-title">
+        <h2 class="title" data-effect="fadeInDown">{{{name}}}</h2>
+        <h4 class="subtitle" data-effect="fadeInUp">Reviews: <strong class="color-orange">{{reviews.length}}</strong></h4>
+        <h4 class="subtitle" data-effect="fadeInUp">Average score: <strong style="color: #e09e26;">{{{averageScoreHtml}}}</strong></h4>
+        </div>
+        <div class="prompt hidden">
+          <div class="row">
+            <div class="col-sm-6">
+              <h4 style="color: #e09e26;"><strong>Best review:</strong></h4>
+              <h4 style="color: #b8b9bc;">"{{bestReview.text}}"</h4>
+              <h4 style="color: #e09e26;">{{{bestReview.htmlGrade}}}</h4>
+            </div>
+            <div class="col-sm-6">
+              <h4 style="color: #e09e26;"><strong>Worst review:</strong></h4>
+              <h4 style="color: #b8b9bc;">"{{worstReview.text}}"</h4>
+              <h4 style="color: #e09e26;">{{{worstReview.htmlGrade}}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-sm-8">
+          <div class="row">
+            <div class="section-title col-sm-12">
+              <h2 class="title" data-effect="fadeInDown">Talking Points</h2>
+              {{#each review in filteredSortedReviews}}
+              <a href="javascript:void(0);" {{action 'showFullReview' review this}}>
+              <div {{bind-attr class="review.show:selected-prompt:prompt :zoomIn :animated"}}>
+                <div>
+                  <div class="special-group" style="padding-left: 15px; padding-right: 15px;">
+                    <h4 {{bind-attr class=":pull-left review.show:color-dark:color-gray"}}><strong>{{review.date}}</strong></h4> 
+                    {{#if review.show}}
+                    <h4 class="pull-right color-dark">{{{review.htmlGrade}}}</h4>
+                    {{else}}
+                    <h4 class="pull-right" {{bind-attr style=review.colorGrade}}>{{{review.htmlGrade}}}</h4>
+                    {{/if}}
+                    <div class="clearfix"></div>
+                  </div>
+                  <div style="margin-left: 15px; margin-right: 15px;">
+                    {{#if review.show}}
+                    <h4 class="color-dark" style="text-align: left;">{{{review.displayText}}}</h4>
+                    {{else}}
+                    {{#if review.displayReviews.length}}
+                    {{#each text in review.displayReviews}}
+                    <h4 style="text-align: left;color: #b8b9bc;">{{{text}}}</h4>
+                    {{/each}}
+                    {{else}}
+                    <h4 class="color-orange"><i>No topics found in this review. Click to read full text.</i></h4>
+                    {{/if}}
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
+              </a>
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <div class="sidebar-offcanvas hidden-xs col-sm-4 col-md-6">
+          <div class="section-title ratings-affix">
+            <h2 class="title" data-effect="fadeInDown">Score Breakdown</h2>
+            <div class="prompt" style="padding-top: 4px;">
+              <div class="row" style="margin-bottom:20px;">
+                <h4 class="col-md-4 hidden-sm hidden-xs color-gray"><i class="color-orange fa fa-file-text"></i> {{filteredSortedReviews.length}}</h4>
+                <h4 class="col-sm-12 col-md-4 color-orange">{{{averageFilteredScoreHtml}}}</h4>
+                <h4 class="col-md-4 hidden-sm hidden-xs color-gray"><strong class="color-orange">Topics: </strong> {{numSelected}}</h4>
+              </div>
+              <div class="hidden-sm">
+                {{vertical-bar-chart data=distributions}}
+                <div class="row">
+                  <h4 class="color-gray"><span style="color: #601e00;"><i class='fa fa-star'></i></span> - <span style="color: #803e00;"><i class='fa fa-star'></i><i class='fa fa-star'></i></span> - <span style="color: #a05e00;"><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i></span> - <span style="color: #c07e06"><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i></span> - <span style="color: #e09e26;"><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i></span></h4>
+                </div>
+              </div>
+              <h4 class="color-gray">Click a topic below to read more!</h4>
+              <div class="special-group" style="max-height: 250px; overflow-y: scroll; overflow-x: hidden;">
+                <div {{action 'selectAllTopics' this}} {{bind-attr class=":row allSelected:selected-group"}}>
+                  <h4 {{bind-attr class="allSelected:color-dark:color-gray :col-sm-12"}}><strong {{bind-attr class="allSelected:color-dark:color-orange"}}>All</strong> topics</h4>
+                </div>
+                {{#each topic in sortedTopics}}
+                <div {{action 'selectTopic' topic this}} {{bind-attr class=":row topic.selected:selected-group"}}>
+                  <h4 {{bind-attr class=":col-sm-6 topic.selected:color-dark:color-gray"}}><strong>{{topic.name}}</strong></h4>
+                  <h4 {{bind-attr class=":col-sm-6 topic.selected:color-dark:color-gray"}}><i {{bind-attr class="topic.selected:color-dark:color-orange :fa :fa-file-text"}}></i> {{topic.reviews.length}}</h4>
+                </div>
+                {{/each}}
+                </div>
+                <div {{action 'anyAll' this}} {{bind-attr class="anyFilter:selected-prompt:special-prompt :hidden"}}>
+                  <h4 {{bind-attr class="anyFilter:color-dark:color-gray"}}>{{#if anyFilter}}Match <strong>any</strong> topic{{else}}Match <strong class="color-orange">all</strong> topics{{/if}}</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+{% endverbatim %}
+<script>
+  ENV = {FEATURES: {'query-params-new': true}};
+</script>
+<script>
+  function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+  var csrftoken = getCookie('csrftoken');
+  function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+  $.ajaxSetup({
+    traditional: true,
+    crossDomain: false, // obviates need for sameOrigin test
+    beforeSend: function(xhr, settings) {
+      if (!csrfSafeMethod(settings.type)) {
+        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+      }
+    }
+  });
+</script>
+</body>
+</html>

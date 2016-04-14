@@ -46,17 +46,14 @@ INSTALLED_APPS = [
     'profiles',
     'beaconapp',
     'crispy_forms',
-    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'djcelery',
     'kombu.transport.django',
-    'scraper',
-    'django_rq'
-    'tastypie',
-    
+    'scraper',    
 ]
+
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

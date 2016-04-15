@@ -156,6 +156,7 @@ WSGI_APPLICATION = 'beaconapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('MVP_DB_NAME', 'freesage_db'),
         'USER': os.environ.get('POSTGRES_DB_USER', 'fuiste'),
         'PASSWORD': os.environ.get('POSTGRES_DB_PASS', ''),

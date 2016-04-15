@@ -30,6 +30,12 @@ SECRET_KEY = 'o@-9+&5o&bk5b!bg9fk_f&nbqb=x_(cmg!k-nom)1)*m!b!=3q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+TEMPLATE_DEBUG = DEBUG
+
+ALLOWED_HOSTS = ['*']
+
+TEMPLATE_DEBUG = True
+
 ALLOWED_HOSTS = []
 
 
@@ -51,7 +57,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'djcelery',
     'kombu.transport.django',
-    'scraper',    
+    'scraper',
+    'django_rq',
+    'tastypie',
 ]
 
 
@@ -64,6 +72,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.warning_exception_middleware.ProcessExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'beaconapp.urls'
@@ -80,6 +89,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.csrf',
+
             ],
         },
     },
@@ -88,6 +98,11 @@ TEMPLATES = [
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
 )
 
 SITE_ID = 1
@@ -141,6 +156,11 @@ WSGI_APPLICATION = 'beaconapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.environ.get('MVP_DB_NAME', 'freesage_db'),
+        'USER': os.environ.get('POSTGRES_DB_USER', 'fuiste'),
+        'PASSWORD': os.environ.get('POSTGRES_DB_PASS', ''),
+        'HOST': 'localhost',
+        'PORT': '5432',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
@@ -182,7 +202,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = os.environ.get("DJANGO_STATIC_URL", "/static/")
 
 if DEBUG:
     MEDIA_URL = '/media/'
@@ -191,7 +211,30 @@ if DEBUG:
     STATICFILES_DIRS = (os.path.join(os.path.abspath(BASE_DIR), 'static', 'static'),
         )
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+
+RQ_QUEUES = {
+    'default': {
+        'URL': os.getenv('REDISTOGO_URL', 'redis://localhost:6379'), # If you're on Heroku
+        'DB': 0,
+        'DEFAULT_TIMEOUT': 360,
+    },
+    'high': {
+        'URL': os.getenv('REDISTOGO_URL', 'redis://localhost:6379'), # If you're on Heroku
+        'DB': 0,
+        'DEFAULT_TIMEOUT': 500,
+    },
+    'low': {
+        'URL': os.getenv('REDISTOGO_URL', 'redis://localhost:6379'), # If you're on Heroku
+        'DB': 0,
+    }
+}
 
 import dj_database_url
 

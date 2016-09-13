@@ -1,0 +1,13 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<ul id="store_list">
+	<li >Choose A Store:</li>
+	{% for s in stores %}
+	<li>
+		<form class='store_choice' action='{% url "store_homepage" s.id %}'>
+			<input type='submit' value='{{ s.name }}' class='store_choice_button'>
+		</form>
+	</li>
+	{% endfor %}
+</ul>
+{% endblock %}

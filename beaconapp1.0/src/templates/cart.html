@@ -1,0 +1,181 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<div id='cart'>
+  <h1>Hi {{ request.user.username }}!</h1>
+  <h1>Your Cart:</h1>
+  <table id="cart_table">
+  	<tr>
+  		<th>Items In Cart </th><a href="{% url 'previous_orders' %}">View Past Orders</a>
+  	</tr>
+  	<tr>
+  		<th align="left">Item</th><th>Price</th><th>Quantity</th><th>Shipping</th>
+  	</tr>
+  	{% for i in cart_items %}
+  	<tr>
+  		<td align="left">{{ i.name }}</td><td>{{ i.price|floatformat:2 }}</td><td align='center'>{{ i.quantity }}</td><td align='center'>{{ i.shipping }}</td>
+  	</tr>
+  	{% endfor %}
+    <tr>
+      <td>
+        <form action="{% url 'checkout' %}"><input type="submit" value="Check Out"></form>
+      </td>
+    </tr>
+  </table>
+  <h3>Your Order's Breakdown:</h3>
+</div>
+<div id='recommendations'>
+  {% if recommendations.any %}
+  <h1>Recommended for you:</h1>
+  {% endif %}
+  {% for i in recommendations %}
+  <h3>{{ i.name }}</h3>
+  <table class="item_table">
+  <tr>
+    <th align="left">Description</th><th>Price</th><th>In Stock?</th><th>Quantity</th><th>Shipping</th>
+  </tr>
+  <tr>
+  	<td align="left">{{ i.description }}</td><td>${{ i.price|floatformat:2 }}</td><td> {{ i.in_stock|yesno:"Yes, Out Of stock" }}</td>
+  	<td>
+  		<form method='POST' action='{% url "inline_add_to_cart" %}'>
+  			{% csrf_token %}
+  			<input type="hidden" value='{{ i.id }}' name='item_id'>
+  			<input type="hidden" value='{{ i.name }}' name='item_name'>
+  			<input type="hidden" value='{{ i.price }}' name='item_price'>
+  			<input type="number" name="quantity" min="1" max="{{ i.quantity }}" value='1'>
+    </td>
+    <td>
+        <select name='shipping_choices'>
+          {% for machine, human in shipping_choices %}
+          <option value="{{ machine }}">{{ human }}</option>
+          {% endfor %}
+        </select>
+    </td>
+    <td>
+  			<input type='submit' value='Buy Now!' class='buy_button'>
+    </td>
+  		</form>
+  	</td>
+  </tr>
+  </table>
+  {% endfor %}
+<script type="text/javascript">
+var w = 700,
+    h = 150,
+    data = {{ data }},
+    data_names = ['Items', 'S & H', 'Tax'],
+    p = [0.05, 6, .5, 20, 35,45],
+    x, 
+    y;   
+
+// set up x and y scales
+x = d3.scale.linear()
+   .domain([0, 1])
+   .range([0, w]);
+
+y = d3.scale.ordinal()
+   .domain(data)
+   .rangeBands([0, h],p[0],p[2]);
+
+var colorscale = d3.scale.linear()
+  .domain([d3.min(data), d3.max(data)])
+  .interpolate(d3.interpolateHcl)
+  .range(["#59E294", "#214592"]);
+
+var svg = d3.select("#cart")
+            .insert("svg", 'div')
+            .attr({
+              height: h,
+              width: w,
+              class: 'chart'
+            });
+
+var rects = svg.selectAll('rects')
+                .data(data);
+
+var previous_d = false;
+rects.enter().append('rect')
+    .attr({
+      width: x,
+      height: h / 2,
+      y: h / 2,
+      x: function(d){
+        if(previous_d){
+          val = previous_d;
+          previous_d += x(d);
+          console.log(previous_d);
+          return val + p[1];
+
+        }
+        else{
+          previous_d = x(d);
+          console.log(previous_d);
+          return 0 + p[1];
+        }
+      },
+      fill: function(d){return colorscale(d);}
+  });
+    
+// add lables
+previous_d = false;
+svg.selectAll("text")
+     .data(data)
+   .enter().append("text")
+      .attr({
+      height: h / 2,
+      y: (h / 2) + p[4],
+      x: function(d){
+        if(previous_d){
+          val = previous_d;
+          previous_d += x(d);
+          return val + p[1];
+
+        }
+        else{
+          previous_d = x(d);
+          console.log(previous_d);
+          return 0 + p[1];
+        }
+      },
+      dx: 10, // padding-right
+      dy: ".35em", // vertical-align: middle
+     "text-anchor": "start", // text-align: left
+     fill: 'white',
+     })
+     .text(function(d,i){return data_names[i];});
+
+// add g for axis and rules
+var svg = d3.select(".chart")
+     .attr("class", "chart")
+     .attr("width", w + p[3])
+     .attr("height", h + p[3])
+   .insert("g", 'rect')
+     .attr({
+      'transform': 'translate(5,15)'
+    });
+// add x rule
+ svg.selectAll("line")
+     .data(x.ticks(5))
+   .enter().append("line")
+     .attr("x1", x)
+     .attr("x2", x)
+     .attr("y1", 0)
+     .attr("y2", w)
+     .style("stroke", "#ccc");
+ // add x rule text
+ svg.selectAll(".rule")
+     .data(x.ticks(5))
+   .enter().append("text")
+     .attr("class", "rule")
+     .attr("x", x)
+     .attr("y", 0)
+     .attr("dy", -3)
+     .attr("text-anchor", "middle")
+     .text(String);
+// y rule
+ svg.append("line")
+     .attr("y1", 0)
+     .attr("y2", w)
+     .style("stroke", "#000");
+</script>
+</div>
+{% endblock %}

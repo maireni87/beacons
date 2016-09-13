@@ -1,0 +1,45 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+
+{% with Items|first as s %}
+<h1 id="store_name">{{ s.store.name|title }}</h1>
+<h4>Description: {{ s.store.bio }}</h4>
+<h4>Items for Sale:</h4>
+{% endwith %}
+{% if ordered == True %}
+<h1>Sucessfully Added to Cart</h1>
+{% endif %}
+
+{% for i in Items %}
+	<h3>{{ i.name }}</h3>
+	<table class="item_table">
+	<tr>
+	<th>Description</th><th>Price</th><th>In Stock?</th><th>Quantity</th><th>Shipping</th>
+	</tr>
+	<tr>
+		<td align="left">{{ i.description }}</td><td>${{ i.price|floatformat:2 }}</td><td> {{ i.in_stock|yesno:"Yes, Out Of stock" }}</td>
+		<td>
+  		<form method='POST' action='{% url "inline_add_to_cart" %}'>
+  			{% csrf_token %}
+  			<input type="hidden" value='{{ i.id }}' name='item_id'>
+  			<input type="hidden" value='{{ i.name }}' name='item_name'>
+  			<input type="hidden" value='{{ i.price }}' name='item_price'>
+  			<input type="number" name="quantity" min="1" max="{{ i.quantity }}" value='1'>
+    </td>
+    <td>
+        <select name='shipping_choices'>
+          {% for machine, human in shipping_choices %}
+          <option value="{{ machine }}">{{ human }}</option>
+          {% endfor %}
+        </select>
+    </td>
+    <td>
+  			<input type='submit' value='Buy Now!' class='buy_button'>
+    </td>
+  		</form>
+  	</td>
+	</tr>
+	</table>
+{% endfor %}
+
+{% endblock %}

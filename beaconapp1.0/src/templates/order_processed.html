@@ -1,0 +1,5 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+<h1>{{ user.username|title }}, Thanks for your Order on {{ order.date_ordered}} with {{ order.shipping }} shipping.</h1>
+<h1>Have a great day!</h1>
+{% endblock %}

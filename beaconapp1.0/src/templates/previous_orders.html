@@ -1,0 +1,19 @@
+{% extends 'templates/base.html' %}
+{% block content %}
+{% for o in p_orders %}
+<h3>Order on {{ o.date_ordered }}</h3>
+<table id="cart_table">
+	<tr>
+		<th align="left">Items In Order</th>
+	</tr>
+	<tr>
+		<th align="left">Item</th><th>Price</th><th>Quantity</th>
+	</tr>	
+	{% for i in o.transaction_set.all %}
+	<tr>
+		<td align="left">{{ i.item.name }}</td><td>${{ i.item.price|floatformat:2 }}</td><td> {{ i.item.quantity }}</td>
+	</tr>
+	{% endfor %}
+</table>
+{% endfor %}
+{% endblock %}

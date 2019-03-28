@@ -1,10 +1,10 @@
-from django.conf.urls import url, include, patterns
+from django.conf.urls import url
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from app.views import *
 
-urlpatterns = patterns ('',
+urlpatterns = ['',
     url(r'^$', 'profiles.views.home', name='home'),
     url(r'^about/$', 'profiles.views.about', name='about'),
     url(r'^profile/$', 'profiles.views.profile', name='profile'),
@@ -18,7 +18,7 @@ urlpatterns = patterns ('',
     url(r'^propertyMetas/?([0-9]+)?$', PropertyMetasView.as_view()),
     url(r'^propertyStatuses/?([0-9]+)?$', PropertyStatusView.as_view()),
     url(r'^propertyMeta/?$', PropertyMetaView.as_view()),
-)
+]
 
 if settings.DEBUG:
    urlpatterns += static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)
